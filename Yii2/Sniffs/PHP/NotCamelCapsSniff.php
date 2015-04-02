@@ -3,7 +3,7 @@
 /**
  * 
  */
-class Yii2_Sniffs_PHP_NotCamelCaps extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff
+class Yii2_Sniffs_PHP_NotCamelCapsSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff
 {
     /**
      * Processes the tokens that this sniff is interested in.
