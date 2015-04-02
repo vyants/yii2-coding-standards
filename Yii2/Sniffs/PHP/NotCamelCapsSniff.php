@@ -3,7 +3,7 @@
 /**
  * 
  */
-class Yii2_Sniffs_PHP_NotCamelCapsSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff
+class Yii2_Sniffs_PHP_NotCamelCapsSniff implements  PHP_CodeSniffer_Sniff
 {
     /**
      * Processes the tokens that this sniff is interested in.
@@ -14,7 +14,7 @@ class Yii2_Sniffs_PHP_NotCamelCapsSniff extends PEAR_Sniffs_NamingConventions_Va
      *
      * @return void
      */
-    public function processTokenOutsideScope(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $functionName = $phpcsFile->getDeclarationName($stackPtr);
         if ($functionName === null) {
@@ -34,4 +34,14 @@ class Yii2_Sniffs_PHP_NotCamelCapsSniff extends PEAR_Sniffs_NamingConventions_Va
             }
         }
     }//end process()
+
+    /**
+     * Returns the token types that this sniff is interested in.
+     *
+     * @return array(int)
+     */
+    public function register()
+    {
+        return array(T_FUNCTION);
+    }//end register()
 }
