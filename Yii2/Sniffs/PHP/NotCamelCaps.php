@@ -14,9 +14,9 @@ class Yii2_Sniffs_PHP_NotCamelCaps extends PEAR_Sniffs_NamingConventions_ValidFu
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function processTokenOutsideScope(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
-                $functionName = $phpcsFile->getDeclarationName($stackPtr);
+        $functionName = $phpcsFile->getDeclarationName($stackPtr);
         if ($functionName === null) {
             return;
         }
@@ -28,7 +28,7 @@ class Yii2_Sniffs_PHP_NotCamelCaps extends PEAR_Sniffs_NamingConventions_ValidFu
             return;
         }
         if (PHP_CodeSniffer::isCamelCaps($functionName, false, true, false) === false) {
-            if(!preg_match('~^get|set~', $functionName) {
+            if(!preg_match('~^get|set~', $functionName)) {
               $error = 'Function name "%s" is not in camel caps format';
               $phpcsFile->addError($error, $stackPtr, 'NotCamelCaps', $errorData);
             }
