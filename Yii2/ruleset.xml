@@ -3,8 +3,8 @@
 	<description>Yii 2 Web Application Framework Coding Standard</description>
 
 	<rule ref="PSR2">
-		<!-- Property names MUST start with an initial underscore if they are private. -->
-		<exclude name="PSR2.Classes.PropertyDeclaration"/>
+		<!-- Ovveride mthod camelCaps -->
+		<exclude name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps"/>
 
 		<!-- Opening parenthesis of a multi-line function call must be the last content on the line. -->
 		<!-- Closing parenthesis of a multi-line function call must be on a line by itself. -->
@@ -29,6 +29,7 @@
 
 	<!-- ... other Yii2 specific rules. -->
 	<rule ref="Yii2.PHP.DisallowLongArraySyntax"/>
+	<rule ref="Yii2.PHP.NotCamelCaps"/>
 
 	<exclude-pattern>*/i18n/data/*</exclude-pattern>
 	<exclude-pattern>*/views/errorHandler/*</exclude-pattern>
