@@ -21,12 +21,6 @@ class Yii2_Sniffs_PHP_NotCamelCapsSniff implements  PHP_CodeSniffer_Sniff
             return;
         }
         $errorData = array($functionName);
-        // Does this function claim to be magical?
-        if (preg_match('|^__|', $functionName) !== 0) {
-            $error = 'Function name "%s" is invalid; only PHP magic methods should be prefixed with a double underscore';
-            $phpcsFile->addError($error, $stackPtr, 'DoubleUnderscore', $errorData);
-            return;
-        }
         if (PHP_CodeSniffer::isCamelCaps($functionName, false, true, false) === false) {
             if(!preg_match('~^get|set~', $functionName)) {
               $error = 'Function name "%s" is not in camel caps format';
