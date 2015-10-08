@@ -22,7 +22,7 @@ class Yii2_Sniffs_PHP_NotCamelCapsSniff implements  PHP_CodeSniffer_Sniff
         }
         $errorData = array($functionName);
         if (PHP_CodeSniffer::isCamelCaps($functionName, false, true, false) === false) {
-            if(!preg_match('~^get|set|__~', $functionName)) {
+            if(!preg_match('~^get|set|scenario|__~', $functionName)) {
               $error = 'Function name "%s" is not in camel caps format';
               $phpcsFile->addError($error, $stackPtr, 'NotCamelCaps', $errorData);
             }
